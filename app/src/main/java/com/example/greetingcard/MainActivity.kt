@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Column // Import thêm Column để xếp dọc
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -13,10 +13,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight // Import để in đậm chữ
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp // Import sp cho kích thước chữ
+import androidx.compose.ui.unit.sp
 import com.example.greetingcard.ui.theme.GreetingCardTheme
 
 class MainActivity : ComponentActivity() {
@@ -38,37 +38,40 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    // Surface tạo nền màu Cyan
     Surface(
         color = Color.Cyan,
-        modifier = modifier.padding(16.dp) // Cách lề ngoài của khối nền 16dp
+        modifier = modifier.padding(26.dp).fillMaxSize()
     ) {
-        // Column giúp sắp xếp các thành phần Text thẳng hàng từ trên xuống dưới
-        Column(modifier = Modifier.padding(16.dp)) { // Cách lề trong (padding) 16dp
+        Column(modifier = Modifier.padding(26.dp)) {
             Text(
-                text = "Xin chào!",
-                fontSize = 28.sp, // Kích thước chữ dùng sp
-                fontWeight = FontWeight.Bold // Chữ in đậm
+                text = "HAPPY",
+                fontSize = 28.sp,
+                fontWeight = FontWeight.Bold
+
             )
             Text(
-                text = "Mình là $name.",
-                fontSize = 20.sp,
-                color = Color.DarkGray // Đổi màu chữ thành xám đậm
+                text = "BIRTHDAY",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold,
             )
             Text(
-                text = "Đây là ứng dụng Jetpack Compose đầu tiên!",
-                fontSize = 16.sp,
-                modifier = Modifier.padding(top = 8.dp) // Đẩy dòng chữ này cách dòng trên 8dp
+                text = "TO $name!",
+                fontSize = 50.sp,
+                color = Color.Red,
+                fontWeight = FontWeight.Bold
             )
+            }
         }
     }
-}
 
-// Bật showBackground = true để dễ nhìn thấy kết quả trong Preview
-@Preview(showBackground = true)
+@Preview(
+    showSystemUi = true,
+    showBackground = true,
+    name = "Ung dung dau tien cua toi !")
+
 @Composable
-fun GreetingPreview() {
+fun BirthDayCardPreview() {
     GreetingCardTheme {
-        Greeting("Android")
+        Greeting("KIÊN")
     }
 }
