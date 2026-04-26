@@ -57,7 +57,7 @@ class MainActivity : ComponentActivity() {
 @Preview(
     showBackground = true,
     showSystemUi = true,
-    name = "Danh thiếp người dùng"
+    name = "Danh thiếp sinh viên"
 )
 fun BusinessCardApp() {
     val backgroundColor = Color(0xFFD2E8D4)
@@ -96,7 +96,7 @@ fun BusinessCardApp() {
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = "Lớp CNTT CT1C",
+                text = "Lớp K9_Công nghệ thông tin CT1C",
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
                 color = textGreen

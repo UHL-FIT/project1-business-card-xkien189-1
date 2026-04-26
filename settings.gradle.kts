@@ -22,10 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-<<<<<<< HEAD
 rootProject.name = "App_2"
-=======
-rootProject.name = "Greeting Card"
->>>>>>> 7d740994b3a6aa3f510ed691655faa930f20417d
 include(":app")
- 
