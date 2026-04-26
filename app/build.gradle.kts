@@ -4,6 +4,7 @@ plugins {
 }
 
 android {
+<<<<<<< HEAD
     namespace = "com.example.app_2"
     compileSdk = 36
 
@@ -11,6 +12,15 @@ android {
         applicationId = "com.example.app_2"
         minSdk = 24
         targetSdk = 35
+=======
+    namespace = "com.example.greetingcard"
+    compileSdk = 36
+
+    defaultConfig {
+        applicationId = "com.example.greetingcard"
+        minSdk = 24
+        targetSdk = 36
+>>>>>>> 7d740994b3a6aa3f510ed691655faa930f20417d
         versionCode = 1
         versionName = "1.0"
 
@@ -44,7 +54,10 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+<<<<<<< HEAD
     implementation(libs.androidx.navigation.compose)
+=======
+>>>>>>> 7d740994b3a6aa3f510ed691655faa930f20417d
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -1,0 +1,112 @@
+package com.example.greetingcard
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.greetingcard.ui.theme.GreetingCardTheme
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            GreetingCardTheme {
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    GreetingImage(
+                        message = "HAPPY BIRTHDAY",
+                        from = "Kiên",
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun GreetingText(from: String, modifier: Modifier = Modifier, message: String) {
+    Surface(
+        color = Color.Transparent,
+        modifier = modifier.fillMaxSize()
+    ) {
+        Column(modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = message,
+                fontSize = 60.sp,
+                fontWeight = FontWeight.Bold,
+                lineHeight = 60.sp,
+                letterSpacing = 2.5.sp,
+                textAlign = androidx.compose.ui.text.style.TextAlign.Center
+            )
+            Text(
+                text = "To $from!",
+                fontSize = 25.sp,
+                color = Color.Yellow,
+                fontWeight = FontWeight.Bold,
+                fontStyle = androidx.compose.ui.text.font.FontStyle.Italic,
+                modifier = Modifier
+                    .padding(top = 16.dp)
+                    .align(alignment = Alignment.End)
+            )
+            }
+        }
+}
+
+@Composable
+fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) {
+    val image = painterResource(R.drawable.androidparty)
+    Box(modifier) {
+        Image(
+            painter = image,
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            alpha = 0.8F
+        )
+        GreetingText(
+            message = message,
+            from = from,
+            modifier = modifier
+                .fillMaxSize()
+                .padding(8.dp)
+        )
+    }
+}
+
+@Preview(
+    showSystemUi = true,
+    showBackground = true,
+    name = "Ung dung dau tien cua toi !")
+
+@Composable
+fun BirthDayCardPreview() {
+    GreetingCardTheme {
+        GreetingImage(
+            message = stringResource(R.string.happy_birthday_text),
+            from = stringResource(R.string.signature_text)
+        )
+    }
+}
